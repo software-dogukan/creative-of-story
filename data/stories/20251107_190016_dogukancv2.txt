@@ -1,0 +1,7 @@
+--- Hikaye Analizi: dogukancv2 ---
+Oluşturulma Tarihi: 20251107_190016
+Analiz Edilen Görsel: dogukancv2.jpg
+
+--- HİKAYE METNİ ---
+API Hatası: Hikaye üretilemedi. (Hata: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}})
+---------------------
