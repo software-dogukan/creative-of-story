@@ -1,7 +1,7 @@
 # creative-of-story
 # 🧠 AI-Powered Store Story Generator (Creative Content Engine)
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_square_white.svg)]([https://[YOUR-STREAMLIT-URL-HERE]](https://creative-of-story-gaiwthmqz3a96bzd6tjish.streamlit.app/))
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_square_white.svg)](https://creative-of-story-gaiwthmqz3a96bzd6tjish.streamlit.app/))
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 🎯 Project Overview
