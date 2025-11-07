@@ -1,29 +1,32 @@
 # models/story_model.py (NİHAİ VE HATA AYIKLAMASI YAPILMIŞ VERSİYON)
 
 import os
-from dotenv import load_dotenv
+import streamlit as st # !!! STREAMLIT CLOUD İÇİN EKLE !!!
 from google import genai
 from google.genai.errors import APIError
-from PIL import Image  # !!! GÖRSEL İŞLEME İÇİN !!!
+from PIL import Image
 
 # Kendi yardımcı dosyalarımız
 from utils.config import MAX_STORY_LENGTH, TEMPERATURE
 
-# .env dosyasındaki ortam değişkenlerini yükle
-load_dotenv()
+# load_dotenv() ve os.getenv ARTIK GEREKSİZ VE KALDIRILMALI
 
 
 class StoryGenerator:
-
+    
     def __init__(self):
-        # KRİTİK DÜZELTME: self.client'ı her zaman tanımla (AttributeError'ı çözer)
-        self.client = None
+        self.client = None 
         self.model_name = "gemini-2.5-flash"
-
-        api_key = os.getenv("GEMINI_API_KEY")
+        
+        # KRİTİK DEĞİŞİM: API anahtarını st.secrets'tan oku
+        try:
+            api_key = st.secrets["gemini"]["api_key"]
+        except (AttributeError, KeyError):
+            print("HATA: Streamlit secrets'tan API anahtarı okunamadı. Secrets ayarlarını kontrol edin.")
+            return
 
         if not api_key:
-            print("HATA: GEMINI_API_KEY ortam değişkeni bulunamadı. Lütfen .env dosyasını kontrol edin.")
+            print("HATA: Streamlit secrets'tan API anahtarı boş geldi.")
             return
 
         try:
@@ -33,13 +36,12 @@ class StoryGenerator:
 
         except Exception as e:
             print(f"Gemini istemcisi başlatılırken hata oluştu: {e}")
-            # self.client, başlangıçta None olarak ayarlandığı için burada tekrar None'a ayarlamaya gerek yok.
 
-    # !!! generate metodunun imzasını değiştiriyoruz !!!
+    # ... (generate metodu aynı kalır) ...
     def generate(self, image_path, max_new_tokens=MAX_STORY_LENGTH, temperature=TEMPERATURE):
 
         if self.client is None:
-            return "Hikaye modeli (Gemini API) başlatılamadı. API anahtarınızı ve internet bağlantınızı kontrol edin."
+            return "Hikaye modeli (Gemini API) başlatılamadı. Streamlit Secrets ayarlarınızı kontrol edin."
 
         try:
             # 1. Görseli yükle
@@ -75,7 +77,6 @@ class StoryGenerator:
             # 3.2. Başarılı Çıktı Temizliği
             story_text = response.text.strip()
 
-            # Yeni sistemde prompt'u temizle
             if story_text.startswith("Reklam Metni:"):
                 story_text = story_text[len("Reklam Metni:"):].strip()
 
