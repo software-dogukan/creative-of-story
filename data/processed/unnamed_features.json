@@ -1,0 +1,9 @@
+{
+    "image": "data\\input_images\\unnamed.jpg",
+    "objects": [
+        {
+            "object": "person",
+            "confidence": 0.88
+        }
+    ]
+}

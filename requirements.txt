@@ -1,0 +1,6 @@
+streamlit
+torch
+transformers
+ultralytics
+google-genai
+python-dotenv

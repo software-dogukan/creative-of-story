@@ -1,0 +1,9 @@
+{
+    "image": "C:\\Users\\220201304\\OneDrive - Üsküdar Üniversitesi\\Masaüstü\\creative-of-store\\data\\input_images\\test.jpg",
+    "objects": [
+        {
+            "object": "person",
+            "confidence": 0.96
+        }
+    ]
+}

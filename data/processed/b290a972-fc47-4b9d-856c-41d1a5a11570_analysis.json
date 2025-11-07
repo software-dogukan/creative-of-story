@@ -1,0 +1,14 @@
+{
+    "image_path": "C:\\Users\\220201304\\OneDrive - Üsküdar Üniversitesi\\Masaüstü\\creative-of-store\\data\\input_images\\b290a972-fc47-4b9d-856c-41d1a5a11570.jpg",
+    "detections": [
+        {
+            "label": "person",
+            "score": 0.8957
+        },
+        {
+            "label": "person",
+            "score": 0.7292
+        }
+    ],
+    "timestamp": "2025-11-07 15:44:21.468423"
+}
